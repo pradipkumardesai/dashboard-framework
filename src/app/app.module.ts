@@ -7,12 +7,14 @@ import { GridsterModule } from 'angular-gridster2';
 import { AppComponent } from './app.component';
 import { CchGristerComponent } from './components/cch-grister/cch-grister.component';
 import { CchGridsterConfigService } from './services/gridster-config/gridster-config.service';
+import { WidgetContainerComponent } from './components/widget-container/widget-container.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CchGristerComponent
+    CchGristerComponent,
+    WidgetContainerComponent
   ],
   imports: [
     BrowserModule,

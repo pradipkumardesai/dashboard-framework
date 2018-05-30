@@ -1,10 +1,11 @@
 <div style="padding: 10px;">
   <button (click)="editLayout()" class="btn btn-primary">{{editLayoutText}}</button>
+  <button (click)="addItem()" class="btn btn-primary">Add Item</button>
 </div>
 <div class="options" style="height: 600px;">
-  <gridster [options]="options" style="background-color: whitesmoke;">
+  <gridster [options]="options">
     <gridster-item [item]="item" *ngFor="let item of dashboard" >
-      <cch-widget-container></cch-widget-container>
+      <cch-widget-container [gridItem]="this.item" (onRemove)="removeItem($event,this.item)"></cch-widget-container>
     </gridster-item>
   </gridster>
 </div>  

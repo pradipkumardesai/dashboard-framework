@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'cch-widget-header',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetHeaderComponent implements OnInit {
 
+  @Output()
+  onDelete = new EventEmitter<object>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDel(){
+      this.onDelete.emit();
+  }
+
+  onEdit(){
+
+  }
+
+  onSettings(){
+    
   }
 
 }

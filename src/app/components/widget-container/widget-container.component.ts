@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { GridsterItem } from 'angular-gridster2';
 
 @Component({
   selector: 'cch-widget-container',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WidgetContainerComponent implements OnInit {
 
+  @Input()
+  gridItem:GridsterItem
+
+  @Output()
+  onRemove=new EventEmitter<object>();
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onDelete(){
+    this.onRemove.emit();
+    //alert(JSON.stringify(this.gridItem));
   }
 
 }

@@ -24,7 +24,7 @@ export class CchGristerComponent implements OnInit {
   options: GridsterConfig;
   dashboard: Array<GridsterItem>;
   editLayoutText:string;
-
+  style1
   constructor(private cchGridsterConfigService: CchGridsterConfigService) {}
 
   static itemChange(item, itemComponent) {
@@ -39,6 +39,7 @@ export class CchGristerComponent implements OnInit {
     this.options = this.cchGridsterConfigService.getOptions();
     this.dashboard = this.cchGridsterConfigService.getWidgets(this.tabName);
     this.setEditMode(false);
+    this.style1 = "cch-gridster-done";
   }
 
   setEditMode(flag:boolean){
@@ -62,8 +63,6 @@ export class CchGristerComponent implements OnInit {
   }
 
   removeItem($event, item) {
-    $event.preventDefault();
-    $event.stopPropagation();
     this.dashboard.splice(this.dashboard.indexOf(item), 1);
   }
 

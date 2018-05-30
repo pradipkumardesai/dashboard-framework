@@ -5,9 +5,11 @@ import {
   DisplayGrid,
   GridsterConfig,
   GridsterItem,
-  GridType
+  GridType,
+  Draggable
 } from "angular-gridster2";
 import { CchGridsterConfigService } from "../../services/gridster-config/gridster-config.service";
+import { GridsterDraggable } from "angular-gridster2/lib/gridsterDraggable.service";
 
 @Component({
   selector: "cch-grister",
@@ -21,6 +23,7 @@ export class CchGristerComponent implements OnInit {
 
   options: GridsterConfig;
   dashboard: Array<GridsterItem>;
+  editLayoutText:string;
 
   constructor(private cchGridsterConfigService: CchGridsterConfigService) {}
 
@@ -35,6 +38,21 @@ export class CchGristerComponent implements OnInit {
   ngOnInit() {
     this.options = this.cchGridsterConfigService.getOptions();
     this.dashboard = this.cchGridsterConfigService.getWidgets(this.tabName);
+    this.setEditMode(false);
+  }
+
+  setEditMode(flag:boolean){
+    this.options.draggable.enabled = flag;
+    this.options.displayGrid = flag?"always":"none";
+    this.editLayoutText =  flag ? "Done" : "Edit layout";
+    this.options.resizable.enabled = flag;
+  }
+
+ 
+
+  editLayout(){
+    this.setEditMode(!this.options.draggable.enabled);
+    this.changedOptions();
   }
 
   changedOptions() {

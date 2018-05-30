@@ -1,3 +1,6 @@
+<div style="padding: 10px;">
+  <button (click)="editLayout()" class="btn btn-primary">{{editLayoutText}}</button>
+</div>
 <div class="options" style="height: 600px;">
   <gridster [options]="options" style="background-color: whitesmoke;">
     <gridster-item [item]="item" *ngFor="let item of dashboard" >

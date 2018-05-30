@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 import {
   CompactType,
@@ -17,6 +17,8 @@ import { CchGridsterConfigService } from "../../services/gridster-config/gridste
 })
 export class CchGristerComponent implements OnInit {
   
+  @Input() tabName:string;
+
   options: GridsterConfig;
   dashboard: Array<GridsterItem>;
 
@@ -32,7 +34,7 @@ export class CchGristerComponent implements OnInit {
 
   ngOnInit() {
     this.options = this.cchGridsterConfigService.getOptions();
-    this.dashboard = this.cchGridsterConfigService.getWidgets();
+    this.dashboard = this.cchGridsterConfigService.getWidgets(this.tabName);
   }
 
   changedOptions() {

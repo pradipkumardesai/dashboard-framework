@@ -1,3 +1,10 @@
-<div>
-  <cch-grister></cch-grister>
-</div>
+<ngb-tabset >
+  <ngb-tab title="Simple" *ngFor="let tab of ['Tab1','Tab2']">
+    <ng-template ngbTabTitle>{{this.tab}}</ng-template>
+    <ng-template ngbTabContent>
+      <div>
+        <cch-grister [tabName]="this.tab"></cch-grister>
+      </div>
+    </ng-template>
+  </ngb-tab> 
+</ngb-tabset>

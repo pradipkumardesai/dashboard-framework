@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { GridsterModule } from 'angular-gridster2';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { CchGristerComponent } from './components/cch-grister/cch-grister.component';
@@ -20,6 +20,7 @@ import { WidgetHeaderComponent } from './components/widget-header/widget-header.
   ],
   imports: [
     BrowserModule,
+    NgbModule.forRoot(),
     GridsterModule 
   ],
   providers: [CchGridsterConfigService],

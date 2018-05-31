@@ -49,7 +49,9 @@ export class CchGristerComponent implements OnInit {
     this.options.resizable.enabled = flag;
   }
 
- 
+  getLayout(){
+    alert(JSON.stringify(this.dashboard));
+  }
 
   editLayout(){
     this.setEditMode(!this.options.draggable.enabled);

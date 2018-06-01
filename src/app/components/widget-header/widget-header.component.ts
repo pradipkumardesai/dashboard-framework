@@ -9,6 +9,8 @@ export class WidgetHeaderComponent implements OnInit {
 
   @Output()
   onDelete = new EventEmitter<object>();
+  @Output()
+  onSettings= new EventEmitter<object>()
 
   constructor() { }
 
@@ -23,8 +25,8 @@ export class WidgetHeaderComponent implements OnInit {
 
   }
 
-  onSettings(){
-    
+  onSet(){
+    this.onSettings.emit();
   }
 
 }

@@ -10,6 +10,7 @@ import {
 } from "angular-gridster2";
 import { CchGridsterConfigService } from "../../services/gridster-config/gridster-config.service";
 import { GridsterDraggable } from "angular-gridster2/lib/gridsterDraggable.service";
+import { SlideInService } from "../../services/slide-in/slide-in.service";
 
 @Component({
   selector: "cch-grister",
@@ -24,8 +25,21 @@ export class CchGristerComponent implements OnInit {
   options: GridsterConfig;
   dashboard: Array<GridsterItem>;
   editLayoutText:string;
-  style1
-  constructor(private cchGridsterConfigService: CchGridsterConfigService) {}
+  isSlideInVisible:boolean;
+
+  showSlideIn(){
+    this.slideInService.show();
+  }
+
+  hideSlideIn(){
+    this.slideInService.hide();
+  }
+  
+  constructor(private slideInService:SlideInService,private cchGridsterConfigService:CchGridsterConfigService) { 
+    this.slideInService.isSlideInVisible.subscribe(data=>{
+      this.isSlideInVisible=data;
+    });
+  }
 
   static itemChange(item, itemComponent) {
     console.info("itemChanged", item, itemComponent);
@@ -39,7 +53,6 @@ export class CchGristerComponent implements OnInit {
     this.options = this.cchGridsterConfigService.getOptions();
     this.dashboard = this.cchGridsterConfigService.getWidgets(this.tabName);
     this.setEditMode(false);
-    this.style1 = "cch-gridster-done";
   }
 
   setEditMode(flag:boolean){

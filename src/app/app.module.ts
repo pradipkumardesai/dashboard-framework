@@ -10,6 +10,7 @@ import { CchGridsterConfigService } from './services/gridster-config/gridster-co
 import { WidgetContainerComponent } from './components/widget-container/widget-container.component';
 import { WidgetHeaderComponent } from './components/widget-header/widget-header.component';
 import { SlideInService } from './services/slide-in/slide-in.service';
+import { SlideInComponent } from './components/slide-in/slide-in.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SlideInService } from './services/slide-in/slide-in.service';
     AppComponent,
     CchGristerComponent,
     WidgetContainerComponent,
-    WidgetHeaderComponent
+    WidgetHeaderComponent,
+    SlideInComponent
   ],
   imports: [
     BrowserModule,

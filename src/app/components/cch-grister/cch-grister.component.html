@@ -4,10 +4,8 @@
       <button (click)="editLayout()" class="btn btn-primary">{{editLayoutText}}</button>
       <button (click)="addItem()" class="btn btn-primary">Add Item</button>
       <button (click)="getLayout()" class="btn btn-primary">Get layout</button>
-      <button (click)="showSlideIn()" class="btn btn-primary">Show slide in</button>
-      <button (click)="hideSlideIn()" class="btn btn-primary">Hide slide in</button>
     </div>
-    <div class="options" style="height: 600px;border: 1px solid red;">
+    <div class="options" style="height: 600px;">
       
       <div style="float:left;width: 100%;height: 600px;">
           <gridster [options]="options">
@@ -16,8 +14,8 @@
               </gridster-item>
             </gridster>
       </div>
-      <div *ngIf="isSlideInVisible" style="z-index: 2; background-color: yellow;height: 100%; width: 300px;right: 0;float:right;position: fixed;height: 600px;">
-
+      <div *ngIf="isSlideInVisible" style="z-index: 2; background-color: #EFF1F2;height: 100%; width: 300px;right: 0;float:right;position: fixed;height: 600px;">
+        <cch-slide-in></cch-slide-in>
       </div>
 
     </div>

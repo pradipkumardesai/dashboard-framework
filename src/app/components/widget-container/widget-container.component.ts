@@ -16,9 +16,7 @@ export class WidgetContainerComponent implements OnInit {
   onRemove = new EventEmitter<object>();
   
   constructor(private slideInService:SlideInService) { 
-    this.slideInService.isSlideInVisible.subscribe(data=>{
-      
-    });
+  
   }
 
   ngOnInit() {
@@ -30,7 +28,8 @@ export class WidgetContainerComponent implements OnInit {
   }
 
   onSettings(){
-    alert(JSON.stringify(this.gridItem));
+    this.slideInService.show();
+    //alert(JSON.stringify(this.gridItem));
   }
 
 }

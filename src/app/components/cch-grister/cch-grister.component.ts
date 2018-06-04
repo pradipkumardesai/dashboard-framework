@@ -27,9 +27,7 @@ export class CchGristerComponent implements OnInit {
   editLayoutText:string;
   isSlideInVisible:boolean;
 
-  showSlideIn(){
-    this.slideInService.show();
-  }
+ 
 
   hideSlideIn(){
     this.slideInService.hide();
@@ -58,7 +56,7 @@ export class CchGristerComponent implements OnInit {
   setEditMode(flag:boolean){
     this.options.draggable.enabled = flag;
     this.options.displayGrid = flag?"always":"none";
-    this.editLayoutText =  flag ? "Done" : "Edit layout";
+    this.editLayoutText =  flag ? "Save layout" : "Edit layout";
     this.options.resizable.enabled = flag;
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
 import { SlideInService } from '../../services/slide-in/slide-in.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'cch-widget-container',
@@ -15,10 +16,11 @@ export class WidgetContainerComponent implements OnInit {
   @Output()
   onRemove = new EventEmitter<object>();
   
-  constructor(private slideInService:SlideInService) { 
+  constructor(private slideInService:SlideInService,public sanitizer: DomSanitizer) { 
   
   }
 
+  
   ngOnInit() {
   }
 
@@ -28,7 +30,7 @@ export class WidgetContainerComponent implements OnInit {
   }
 
   onSettings(){
-    this.slideInService.show();
+    this.slideInService.show(this.gridItem.settingsUrl);
     //alert(JSON.stringify(this.gridItem));
   }
 

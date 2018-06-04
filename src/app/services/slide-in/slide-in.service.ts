@@ -6,16 +6,19 @@ import { Observable } from 'rxjs/Observable';
 export class SlideInService {
 
   isSlideInVisible = new Subject<boolean>();
+  settingsUrl:string = null;
   
   constructor() { 
     this.hide();
   }
 
-  show(){
+  show(settUrl:string){
+    this.settingsUrl = settUrl;
     this.isSlideInVisible.next(true);
   }
 
   hide(){
+    this.settingsUrl = null;
     this.isSlideInVisible.next(false);
   }
 }

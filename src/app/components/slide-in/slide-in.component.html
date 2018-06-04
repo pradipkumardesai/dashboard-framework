@@ -2,4 +2,5 @@
   <div style="float:right;padding: 10px;">
     <div style="width: 50%"> <span (click)="onClose()" class="glyphicon glyphicon-remove" style="cursor: pointer;"></span></div>
   </div>
+  <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(settUrl)" frameborder="0"></iframe>
 </div>

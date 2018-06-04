@@ -70,10 +70,8 @@ export class CchGridsterConfigService {
   getWidgets(tabName:string){
     let tabs ={
       "Tab1":[
-        {cols: 2, rows: 1, y: 0, x: 0},
-        {cols: 2, rows: 2, y: 0, x: 2, hasContent: true},
-        {cols: 1, rows: 1, y: 0, x: 4},
-        {cols: 1, rows: 1, y: 1, x: 4}      
+        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://localhost:4200/main/1",settingsUrl:"http://localhost:4200/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
+        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://localhost:4200/main/2",settingsUrl:"http://localhost:4200/details/2",widgetId:"w2",widgetTitle:"WIDGET2"}
       ],
       "Tab2":[
         {cols: 2, rows: 1, y: 0, x: 0},

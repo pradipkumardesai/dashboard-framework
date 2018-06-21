@@ -11,6 +11,7 @@ import {
 import { CchGridsterConfigService } from "../../services/gridster-config/gridster-config.service";
 import { GridsterDraggable } from "angular-gridster2/lib/gridsterDraggable.service";
 import { SlideInService } from "../../services/slide-in/slide-in.service";
+import { ParentToIframeService } from "../../bridge/services/parent-to-iframe.service";
 
 @Component({
   selector: "cch-grister",
@@ -33,9 +34,13 @@ export class CchGristerComponent implements OnInit {
     this.slideInService.hide();
   }
   
-  constructor(private slideInService:SlideInService,private cchGridsterConfigService:CchGridsterConfigService) { 
+  constructor(private slideInService:SlideInService,private cchGridsterConfigService:CchGridsterConfigService,private parentToIframeService:ParentToIframeService) { 
     this.slideInService.isSlideInVisible.subscribe(data=>{
       this.isSlideInVisible=data;
+    });
+
+    this.parentToIframeService.getOnFromIframeMessageRef().subscribe(data=>{
+      alert("Message from child - " + data);
     });
   }
 

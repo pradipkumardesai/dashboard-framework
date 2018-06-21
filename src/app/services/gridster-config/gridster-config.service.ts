@@ -70,15 +70,19 @@ export class CchGridsterConfigService {
   getWidgets(tabName:string){
     let tabs ={
       "Tab1":[
-        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://gridsterwidget1.azurewebsites.net/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
-        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://gridsterwidget1.azurewebsites.net/#/main/2",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/2",widgetId:"w2",widgetTitle:"WIDGET2"}
+        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://localhost:4300/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
+        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://localhost:4300/#/main/2",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/2",widgetId:"w2",widgetTitle:"WIDGET2"}
       ],
       "Tab2":[
-        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://gridsterwidget1.azurewebsites.net/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
-        {cols: 2, rows: 2, y: 0, x: 2,widgetUrl:"http://gridsterwidget1.azurewebsites.net/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
+        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://localhost:4300/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
+        {cols: 2, rows: 2, y: 0, x: 2,widgetUrl:"http://localhost:4300/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
      
       ]
     }
     return tabs[tabName];
+  }
+
+  test(){
+    alert("test");
   }
 }

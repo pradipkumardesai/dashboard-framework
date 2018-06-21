@@ -11,6 +11,8 @@ import { WidgetContainerComponent } from './components/widget-container/widget-c
 import { WidgetHeaderComponent } from './components/widget-header/widget-header.component';
 import { SlideInService } from './services/slide-in/slide-in.service';
 import { SlideInComponent } from './components/slide-in/slide-in.component';
+import { IframeWrapperDirective } from './directives/iframe/iframe-wrapper.directive';
+import { BridgeModule } from './bridge/bridge.module';
 
 
 @NgModule({
@@ -19,12 +21,14 @@ import { SlideInComponent } from './components/slide-in/slide-in.component';
     CchGristerComponent,
     WidgetContainerComponent,
     WidgetHeaderComponent,
-    SlideInComponent
+    SlideInComponent,
+    IframeWrapperDirective
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    GridsterModule 
+    GridsterModule,
+    BridgeModule 
   ],
   providers: [CchGridsterConfigService,SlideInService],
   bootstrap: [AppComponent],

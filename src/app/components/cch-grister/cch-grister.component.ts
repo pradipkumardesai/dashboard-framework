@@ -85,6 +85,7 @@ export class CchGristerComponent implements OnInit {
   }
 
   addItem() {
-    this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1 });
+    this.slideInService.showWidgetGallery();
+    //this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1 });
   }
 }

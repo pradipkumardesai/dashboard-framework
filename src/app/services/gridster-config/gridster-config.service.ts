@@ -1,16 +1,20 @@
-import { Injectable } from '@angular/core';
-import { GridsterConfig, DisplayGrid, GridType, CompactType } from 'angular-gridster2';
+import { Injectable } from "@angular/core";
+import {
+  GridsterConfig,
+  DisplayGrid,
+  GridType,
+  CompactType
+} from "angular-gridster2";
 
 @Injectable()
 export class CchGridsterConfigService {
+  constructor() {}
 
-  constructor() { }
-
-  getOptions():GridsterConfig{
-    let config={
+  getOptions(): GridsterConfig {
+    let config = {
       gridType: GridType.Fixed,
       compactType: CompactType.None,
-      
+
       margin: 10,
       outerMargin: true,
       outerMarginTop: null,
@@ -27,7 +31,7 @@ export class CchGridsterConfigService {
       maxItemRows: 100,
       minItemRows: 1,
       maxItemArea: 2500,
-      minItemArea: 1,      
+      minItemArea: 1,
       defaultItemCols: 1,
       defaultItemRows: 1,
       fixedColWidth: 200,
@@ -38,51 +42,97 @@ export class CchGridsterConfigService {
       scrollSpeed: 20,
       enableEmptyCellClick: false,
       enableEmptyCellContextMenu: false,
-      enableEmptyCellDrop: false,
+      enableEmptyCellDrop: true,
       enableEmptyCellDrag: false,
       emptyCellDragMaxCols: 50,
       emptyCellDragMaxRows: 50,
       ignoreMarginInRow: false,
       draggable: {
-        enabled: true,
+        enabled: true
       },
       resizable: {
-        enabled: true,
+        enabled: true
       },
       swap: false,
       pushItems: true,
       disablePushOnDrag: false,
       disablePushOnResize: false,
-      pushDirections: {north: true, east: true, south: true, west: true},
+      pushDirections: { north: true, east: true, south: true, west: true },
       pushResizeItems: false,
       displayGrid: DisplayGrid.Always,
       disableWindowResize: false,
       disableWarnings: false,
-      scrollToNewItems: false
+      scrollToNewItems: false,
+      emptyCellDropCallback: this.addItem.bind(this)
     };
 
     return config;
-  
-  
-  
   }
 
-  getWidgets(tabName:string){
-    let tabs ={
-      "Tab1":[
-        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://localhost:4300/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
-        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://localhost:4300/#/main/2",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/2",widgetId:"w2",widgetTitle:"WIDGET2"}
-      ],
-      "Tab2":[
-        {cols: 2, rows: 1, y: 0, x: 0,widgetUrl:"http://localhost:4300/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
-        {cols: 2, rows: 2, y: 0, x: 2,widgetUrl:"http://localhost:4300/#/main/1",settingsUrl:"http://gridsterwidget1.azurewebsites.net/#/details/1",widgetId:"w1",widgetTitle:"WIDGET1"},
-     
-      ]
-    }
-    return tabs[tabName];
+  addItem(event, gridsterItem) {
+    let data = JSON.parse(event.dataTransfer.getData("text/plain"));
+    gridsterItem.widgetData = data;
+    this.tabs["Tab1"].push(gridsterItem);
+  }
+  tabs = {
+    Tab1: [
+      {
+        cols: 2,
+        rows: 1,
+        y: 0,
+        x: 0,
+        widgetData: {
+          widgetUrl: "http://localhost:4300/#/main/1",
+          settingsUrl: "http://gridsterwidget1.azurewebsites.net/#/details/1",
+          widgetId: "w1",
+          widgetTitle: "WIDGET1"
+        }
+      },
+      {
+        cols: 2,
+        rows: 1,
+        y: 0,
+        x: 0,
+        widgetData: {
+          widgetUrl: "http://localhost:4300/#/main/2",
+          settingsUrl: "http://gridsterwidget1.azurewebsites.net/#/details/2",
+          widgetId: "w2",
+          widgetTitle: "WIDGET2"
+        }
+      }
+    ],
+    Tab2: [
+      {
+        cols: 2,
+        rows: 1,
+        y: 0,
+        x: 0,
+        widgetData: {
+          widgetUrl: "http://localhost:4300/#/main/1",
+          settingsUrl: "http://gridsterwidget1.azurewebsites.net/#/details/1",
+          widgetId: "w1",
+          widgetTitle: "WIDGET1"
+        }
+      },
+      {
+        cols: 2,
+        rows: 2,
+        y: 0,
+        x: 2,
+        widgetData: {
+          widgetUrl: "http://localhost:4300/#/main/1",
+          settingsUrl: "http://gridsterwidget1.azurewebsites.net/#/details/1",
+          widgetId: "w1",
+          widgetTitle: "WIDGET1"
+        }
+      }
+    ]
+  };
+  getWidgets(tabName: string) {
+    return this.tabs[tabName];
   }
 
-  test(){
+  test() {
     alert("test");
   }
 }

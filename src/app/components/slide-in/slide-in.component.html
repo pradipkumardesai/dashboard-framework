@@ -1,6 +1,20 @@
 <div>
-  <div style="float:right;padding: 10px;">
-    <div style="width: 50%"> <span (click)="onClose()" class="glyphicon glyphicon-remove" style="cursor: pointer;"></span></div>
+  <div style="background-color: steelblue;height: 40px;">
+    <div style="float:right;padding: 10px; ">
+      <div style="width: 50%">
+        <span (click)="onClose()" class="glyphicon glyphicon-remove" style="cursor: pointer;"></span>
+      </div>
+    </div>
   </div>
-  <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(settUrl)" frameborder="0"></iframe>
+
+  <div [ngSwitch]="viewCode">
+    <div *ngSwitchCase="1">
+      <cch-widget-gallery></cch-widget-gallery>
+    </div>
+    <div *ngSwitchCase="2">
+      <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(settUrl)" frameborder="0"></iframe>
+    </div>
+  </div>
+
+
 </div>

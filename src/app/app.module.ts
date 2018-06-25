@@ -13,6 +13,8 @@ import { SlideInService } from './services/slide-in/slide-in.service';
 import { SlideInComponent } from './components/slide-in/slide-in.component';
 import { IframeWrapperDirective } from './directives/iframe/iframe-wrapper.directive';
 import { BridgeModule } from './bridge/bridge.module';
+import { WidgetGalleryComponent } from './components/widget-gallery/widget-gallery.component';
+import { WidgetGalleryCardComponent } from './components/widget-gallery-card/widget-gallery-card.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { BridgeModule } from './bridge/bridge.module';
     WidgetContainerComponent,
     WidgetHeaderComponent,
     SlideInComponent,
-    IframeWrapperDirective
+    IframeWrapperDirective,
+    WidgetGalleryComponent,
+    WidgetGalleryCardComponent
   ],
   imports: [
     BrowserModule,

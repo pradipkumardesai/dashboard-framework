@@ -1,4 +1,4 @@
 <div class="widget-container">
-  <cch-widget-header (onDelete)="onDelete()" (onSettings)="onSettings()" [widgetTitle]="gridItem.widgetTitle"></cch-widget-header> 
-  <iframe #tref [src]="sanitizer.bypassSecurityTrustResourceUrl(gridItem.widgetUrl)" frameborder="0"></iframe>
+  <cch-widget-header (onDelete)="onDelete()" (onSettings)="onSettings()" [widgetTitle]="gridItem.widgetData.widgetTitle"></cch-widget-header> 
+  <iframe #tref [src]="sanitizer.bypassSecurityTrustResourceUrl(gridItem.widgetData.widgetUrl)" frameborder="0"></iframe>
 </div>

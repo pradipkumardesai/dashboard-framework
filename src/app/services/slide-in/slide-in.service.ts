@@ -21,4 +21,8 @@ export class SlideInService {
     this.settingsUrl = null;
     this.isSlideInVisible.next(false);
   }
+
+  showWidgetGallery(){
+    this.isSlideInVisible.next(true);
+  }
 }

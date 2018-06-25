@@ -10,6 +10,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 export class SlideInComponent implements OnInit {
 
   settUrl:string =  null;
+  viewCode = 1;
 
   constructor(private slideInService: SlideInService,public sanitizer: DomSanitizer) {}
 

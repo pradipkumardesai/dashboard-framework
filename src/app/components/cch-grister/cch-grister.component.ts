@@ -20,26 +20,27 @@ import { ParentToIframeService } from "../../bridge/services/parent-to-iframe.se
   providers: [CchGridsterConfigService]
 })
 export class CchGristerComponent implements OnInit {
-  
-  @Input() tabName:string;
+  @Input() tabName: string;
 
   options: GridsterConfig;
   dashboard: Array<GridsterItem>;
-  editLayoutText:string;
-  isSlideInVisible:boolean;
+  editLayoutText: string;
+  isSlideInVisible: boolean;
 
- 
-
-  hideSlideIn(){
+  hideSlideIn() {
     this.slideInService.hide();
   }
-  
-  constructor(private slideInService:SlideInService,private cchGridsterConfigService:CchGridsterConfigService,private parentToIframeService:ParentToIframeService) { 
-    this.slideInService.isSlideInVisible.subscribe(data=>{
-      this.isSlideInVisible=data;
+
+  constructor(
+    private slideInService: SlideInService,
+    private cchGridsterConfigService: CchGridsterConfigService,
+    private parentToIframeService: ParentToIframeService
+  ) {
+    this.slideInService.isSlideInVisible.subscribe(data => {
+      this.isSlideInVisible = data;
     });
 
-    this.parentToIframeService.getOnFromIframeMessageRef().subscribe(data=>{
+    this.parentToIframeService.getOnFromIframeMessageRef().subscribe(data => {
       alert("Message from child - " + data);
     });
   }
@@ -58,19 +59,21 @@ export class CchGristerComponent implements OnInit {
     this.setEditMode(false);
   }
 
-  setEditMode(flag:boolean){
+  setEditMode(flag: boolean) {
     this.options.draggable.enabled = flag;
-    this.options.displayGrid = flag?"always":"none";
-    this.editLayoutText =  flag ? "Save layout" : "Edit layout";
+    this.options.displayGrid = flag ? "always" : "none";
+    this.editLayoutText = flag ? "Save layout" : "Edit layout";
     this.options.resizable.enabled = flag;
+    if (!flag) this.slideInService.hide();
   }
 
-  getLayout(){
+  getLayout() {
     alert(JSON.stringify(this.dashboard));
   }
 
-  editLayout(){
+  editLayout() {
     this.setEditMode(!this.options.draggable.enabled);
+
     this.changedOptions();
   }
 
@@ -86,6 +89,5 @@ export class CchGristerComponent implements OnInit {
 
   addItem() {
     this.slideInService.showWidgetGallery();
-    //this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1 });
   }
 }

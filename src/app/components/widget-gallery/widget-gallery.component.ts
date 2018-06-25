@@ -8,25 +8,25 @@ import { Component, OnInit } from "@angular/core";
 export class WidgetGalleryComponent implements OnInit {
   widgetList = [
     {    
-      widgetUrl: "http://localhost:4300/#/main/1",
+      widgetUrl: "http://gridsterwidget1.azurewebsites.net/#/main/1",
       settingsUrl: "http://gridsterwidget1.azurewebsites.net/#/details/1",
       widgetId: "wd1",
       widgetTitle: "Project Dates"
     },
     {
-      widgetUrl: "http://localhost:4300/#/main/2",
+      widgetUrl: "http://gridsterwidget1.azurewebsites.net/#/main/2",
       settingsUrl: "http://gridsterwidget1.azurewebsites.net/#/details/2",
       widgetId: "wd2",
       widgetTitle: "Work Object"
     },
     {    
-      widgetUrl: "http://localhost:4300/#/main/1",
+      widgetUrl: "http://gridsterwidget1.azurewebsites.net/#/main/1",
       settingsUrl: "http://gridsterwidget1.azurewebsites.net/#/details/1",
       widgetId: "wd1",
       widgetTitle: "Current Workstep"
     },
     {
-      widgetUrl: "http://localhost:4300/#/main/2",
+      widgetUrl: "http://gridsterwidget1.azurewebsites.net/#/main/2",
       settingsUrl: "http://gridsterwidget1.azurewebsites.net/#/details/2",
       widgetId: "wd2",
       widgetTitle: "Client Details"

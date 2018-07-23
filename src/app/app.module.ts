@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from "@angular/router";
 
 import { GridsterModule } from 'angular-gridster2';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +16,8 @@ import { IframeWrapperDirective } from './directives/iframe/iframe-wrapper.direc
 import { BridgeModule } from './bridge/bridge.module';
 import { WidgetGalleryComponent } from './components/widget-gallery/widget-gallery.component';
 import { WidgetGalleryCardComponent } from './components/widget-gallery-card/widget-gallery-card.component';
+import { AppRouteModule } from './app.route.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import { WidgetGalleryCardComponent } from './components/widget-gallery-card/wid
   ],
   imports: [
     BrowserModule,
+    RouterModule,
+    SharedModule,
+    AppRouteModule,
     NgbModule.forRoot(),
     GridsterModule,
     BridgeModule 
